@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import Logo from "@assets/logo-Chris.svg";
 
 function Home() {
@@ -23,15 +22,21 @@ function Home() {
         <p className="flex justify-center">Web Developper</p>
       </div>
       <div className="mt-8 ml-6 font-bold">
-        <p>My Portfolio</p>
+        <p className="mb-2">My Portfolio</p>
       </div>
-      <div className="flex flex-col ml-4">
+      <div className="flex flex-col">
         {projectsList &&
           projectsList?.map((projects) => (
             <div className="mb-4">
-              <p>{projects.title}</p>
-              <p>{projects.description}</p>
-              <p>{projects.picture_url}</p>
+              <p className="ml-4">{projects.title}</p>
+              <p className="ml-4">{projects.description}</p>
+              <div className="flex justify-center">
+                <img
+                  className="w-72"
+                  src={projects.picture_url}
+                  alt="pictureProject"
+                />
+              </div>
             </div>
           ))}
       </div>
