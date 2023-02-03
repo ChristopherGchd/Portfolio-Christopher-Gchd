@@ -21,15 +21,22 @@ function Home() {
         <p className="flex justify-center">I'm Chris</p>
         <p className="flex justify-center">Web Developper</p>
       </div>
-      <div className="mt-8 ml-6 font-bold">
-        <p className="mb-2">My Portfolio</p>
+      <div className="mt-6">
+        <h2 className="ml-8 mb-2 font-bold">Me !</h2>
+        <p className="ml-4">
+          Hello, I'm Chris, web developer, having followed an intensive training
+          at the Wild Code School, I use languages and tools such as React,
+          JavaScript, MySQL, Express, Postman, Nodejs, HTML5, CSS3...
+        </p>
+      </div>
+      <div className="mt-6 ml-6 font-bold">
+        <p className="mb-2">Portfolio</p>
       </div>
       <div className="flex flex-col">
         {projectsList &&
           projectsList?.map((projects) => (
             <div className="mb-4">
-              <p className="ml-4">{projects.title}</p>
-              <p className="ml-4">{projects.description}</p>
+              <p className="flex justify-center ml-4 mb-2">{projects.title}</p>
               <div className="flex justify-center">
                 <img
                   className="w-72"
@@ -40,15 +47,7 @@ function Home() {
             </div>
           ))}
       </div>
-      <div className="mt-6">
-        <h2 className="ml-8 mb-2 font-bold">Me !</h2>
-        <p className="ml-4">
-          Hello, I'm Chris, web developer, having followed an intensive training
-          at the Wild Code School, I use languages and tools such as React,
-          JavaScript, MySQL, Express, Postman, Nodejs, HTML5, CSS3...
-        </p>
-      </div>
-      <div className="mt-6">
+      <div className="mt-2">
         <h2 className="ml-8 mb-2 font-bold">Contact</h2>
         <div className="flex justify-center">
           <input
