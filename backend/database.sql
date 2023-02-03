@@ -44,7 +44,7 @@ CREATE TABLE
     `project` (
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         title VARCHAR(150) NOT NULL,
-        description VARCHAR(200) NOT NULL,
+        `description` VARCHAR(200) NOT NULL,
         picture_url VARCHAR(1000) NOT NULL,
         github_url VARCHAR(1000) NULL,
         site_url VARCHAR(1000) NULL

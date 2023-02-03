@@ -25,8 +25,15 @@ function Home() {
       <div className="mt-8 ml-6 font-bold">
         <p>My Portfolio</p>
       </div>
-      <div className="flex justify-center">
-        {projectsList && projectsList.map((projects) => projects.title)}
+      <div className="flex flex-col ml-4">
+        {projectsList &&
+          projectsList?.map((projects) => (
+            <div className="mb-4">
+              <p>{projects.title}</p>
+              <p>{projects.description}</p>
+              <p>{projects.picture_url}</p>
+            </div>
+          ))}
       </div>
       <div className="mt-6">
         <h2 className="ml-8 mb-2 font-bold">Me !</h2>
