@@ -22,11 +22,58 @@ function Home() {
         <p className="flex justify-center">I'm Chris</p>
         <p className="flex justify-center">Web Developper</p>
       </div>
-      <div className="mt-8 ml-6">
+      <div className="mt-8 ml-6 font-bold">
         <p>My Portfolio</p>
       </div>
-      <div>
+      <div className="flex justify-center">
         {projectsList && projectsList.map((projects) => projects.title)}
+      </div>
+      <div className="mt-6">
+        <h2 className="ml-8 mb-2 font-bold">Me !</h2>
+        <p className="ml-4">
+          Hello, I'm Chris, web developer, having followed an intensive training
+          at the Wild Code School, I use languages and tools such as React,
+          JavaScript, MySQL, Express, Postman, Nodejs, HTML5, CSS3...
+        </p>
+      </div>
+      <div className="mt-6">
+        <h2 className="ml-8 mb-2 font-bold">Contact</h2>
+        <div className="flex justify-center">
+          <input
+            className="px-2 border-2 w-3/4 rounded-lg border-[#e7ebec] outline-[#ced7da] mb-6 text-lg"
+            type="text"
+            name="user_firstname"
+            required="required"
+            placeholder="Name"
+          />
+        </div>
+        <div className="flex justify-center">
+          <input
+            className="px-2 border-2 w-3/4 rounded-lg border-[#e7ebec] outline-[#ced7da] mb-6 text-lg"
+            type="text"
+            name="user_email"
+            required="required"
+            placeholder="Email"
+          />
+        </div>
+        <div className="flex justify-center">
+          <input
+            className="px-2 border-2 w-3/4 rounded-lg border-[#e7ebec] outline-[#ced7da] mb-6 text-lg"
+            type="text"
+            name="user_firstname"
+            required="required"
+            placeholder="Subject"
+          />
+        </div>
+        <div className="flex justify-center">
+          <input
+            className="px-2 border-2 w-3/4 h-60 rounded-lg border-[#e7ebec] outline-[#ced7da] mb-6 text-lg"
+            type="text"
+            name="message"
+            required="required"
+            placeholder="Message"
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./Navbar.css";
 
@@ -39,29 +40,41 @@ function Navbar() {
               </svg>
             </button>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
-              <li className="border-b border-gray-400 my-8 uppercase">
-                <a href="/about">About</a>
-              </li>
-              <li className="border-b border-gray-400 my-8 uppercase">
-                <a href="/portfolio">Portfolio</a>
-              </li>
-              <li className="border-b border-gray-400 my-8 uppercase">
-                <a href="/contact">Contact</a>
-              </li>
+              <Link to="/home">
+                <li className="border-gray-400 my-8 uppercase">
+                  <p>Home</p>
+                </li>
+              </Link>
+              <Link to="/projects">
+                <li className="border-gray-400 my-8 uppercase">
+                  <p>My Projects</p>
+                </li>
+              </Link>
+              <Link to="/home">
+                <li className="border-gray-400 my-8 uppercase">
+                  <p>Contact</p>
+                </li>
+              </Link>
             </ul>
           </div>
         </section>
 
         <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/portfolio">Portfolio</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
+          <Link to="/home">
+            <li className="border-gray-400 my-8 uppercase">
+              <p>Home</p>
+            </li>
+          </Link>
+          <Link to="/projects">
+            <li className="border-gray-400 my-8 uppercase">
+              <p>My Projects</p>
+            </li>
+          </Link>
+          <Link to="/home">
+            <li className="border-gray-400 my-8 uppercase">
+              <p>Contact</p>
+            </li>
+          </Link>
         </ul>
       </nav>
     </div>
