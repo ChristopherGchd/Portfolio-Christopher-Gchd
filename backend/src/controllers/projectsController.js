@@ -12,22 +12,6 @@ const browse = (req, res) => {
     });
 };
 
-const postAdvice = (req, res) => {
-  models.project
-    .insert(req.body)
-    .then(([result]) => {
-      res
-        .location(`/projects/${req.params.id}/projet/${result.insertId}`)
-        .status(201)
-        .json(result.insertId);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
 module.exports = {
   browse,
-  postAdvice,
 };

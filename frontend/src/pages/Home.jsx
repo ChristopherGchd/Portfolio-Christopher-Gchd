@@ -26,7 +26,7 @@ function Home() {
         <p>My Portfolio</p>
       </div>
       <div>
-        {projectsList && projectsList.map((projects) => ({ projects }))}
+        {projectsList && projectsList.map((projects) => projects.title)}
       </div>
     </div>
   );

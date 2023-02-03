@@ -6,7 +6,7 @@ class ProjectsManager extends AbstractManager {
   }
 
   findAll(id) {
-    const query = `SELECT proj.*, tech.* FROM ${this.table} proj JOIN project_has_technology pht ON proj.id = pht.project_id JOIN technologies tech ON pht.technology_id = tech.id`;
+    const query = `SELECT project.title, project.description, project.picture_url, project.github_url, project.site_url, technology.name FROM ${this.table} as project JOIN project_has_technology pht ON project.id = pht.project_id JOIN technology as technology ON pht.technology_id = technology.id`;
     return this.connection.query(query, [id]);
   }
 
