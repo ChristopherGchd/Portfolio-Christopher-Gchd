@@ -6,7 +6,7 @@ function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <div className="flex justify-end mt-6 mr-6">
+    <div id="navbar" className="flex justify-end mt-6 mr-6">
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <button
