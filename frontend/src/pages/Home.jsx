@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
+
 import Logo from "@assets/logo-Chris.svg";
+import apiConnexion from "../services/apiConnexion";
 
 function Home() {
   const [projectsList, setProjectsList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/projects`)
-      .then((res) => res.json())
-      .then((json) => setProjectsList(json))
+    apiConnexion
+      .get(`projects`)
+      .then((res) => {
+        setProjectsList(res.data);
+      })
       .catch((err) => console.error(err));
   }, []);
 

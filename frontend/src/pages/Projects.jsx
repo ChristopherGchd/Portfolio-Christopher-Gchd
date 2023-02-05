@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import apiConnexion from "../services/apiConnexion";
 
 function Projects() {
-  const [projectsList, setProjectsList] = useState([]);
+  const [projectList, setProjectList] = useState([]);
 
   useEffect(() => {
     apiConnexion
       .get(`projects`)
       .then((res) => {
-        setProjectsList(res.data);
+        setProjectList(res.data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -19,8 +19,8 @@ function Projects() {
     <div>
       <p className="mt-4 ml-6 mb-4 font-bold">Portfolio</p>
       <div className="flex flex-col">
-        {projectsList &&
-          projectsList?.map((projects) => (
+        {projectList &&
+          projectList?.map((projects) => (
             <div className="mb-4">
               <p className="flex justify-center ml-4 font-semibold">
                 {projects.title}
