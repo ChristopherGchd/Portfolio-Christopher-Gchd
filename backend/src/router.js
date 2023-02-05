@@ -9,6 +9,7 @@ router.get("/projects", ProjectsControllers.browse);
 router.get("/projects/:id", ProjectsControllers.read);
 router.get("/projectadmin", ProjectsControllers.browse);
 
+router.post("/projectadmin", ProjectsControllers.add);
 router.delete("/projectadmin/:id", ProjectsControllers.destroy);
 
 module.exports = router;
