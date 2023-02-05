@@ -18,7 +18,7 @@ class ProjectsManager extends AbstractManager {
 
   insert(project) {
     return this.connection.query(
-      `insert into ${this.table} (title) values (?)`,
+      `insert into ${this.table} (title, description, picture_url, github_url, site_url) values (?,?,?,?,?)`,
       [
         project.title,
         project.description,
@@ -34,6 +34,12 @@ class ProjectsManager extends AbstractManager {
       `update ${this.table} set title = ? where id = ?`,
       [project.title, project.id]
     );
+  }
+
+  delete(id) {
+    return this.connection.query(`delete from ${this.table} where id = ?`, [
+      id,
+    ]);
   }
 }
 

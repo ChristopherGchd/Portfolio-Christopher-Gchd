@@ -28,22 +28,6 @@ const read = (req, res) => {
     });
 };
 
-const add = (req, res) => {
-  const user = req.body;
-
-  // TODO validations (length, format...)
-
-  models.project
-    .insert(user)
-    .then(([result]) => {
-      res.location(`/users/${result.insertId}`).sendStatus(201);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
 const destroy = (req, res) => {
   models.project
     .delete(req.params.id)
@@ -63,6 +47,5 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
-  add,
   destroy,
 };
