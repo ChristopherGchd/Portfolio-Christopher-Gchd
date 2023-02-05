@@ -23,7 +23,7 @@ function Navbar() {
           </div>
           <div className="inline-block text-center place-content-center mr-4">
             <Link to="/projects">
-              <p className="text-sm">My Projects</p>
+              <p className="text-sm">Portfolio</p>
             </Link>
           </div>
           <div className="inline-block text-center place-content-center mr-4">
@@ -73,7 +73,7 @@ function Navbar() {
                 <p className="text-xl font-bold py-2">Home</p>
               </Link>
               <Link to="/projects">
-                <p className="text-xl font-bold py-2">My Projects</p>
+                <p className="text-xl font-bold py-2">Portfolio</p>
               </Link>
               <Link to="/home">
                 <p className="text-xl font-bold py-2">Contact</p>
