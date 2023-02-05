@@ -5,7 +5,7 @@ function Home() {
   const [projectsList, setProjectsList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/home`)
+    fetch(`http://localhost:5000/projects`)
       .then((res) => res.json())
       .then((json) => setProjectsList(json))
       .catch((err) => console.error(err));
@@ -36,13 +36,23 @@ function Home() {
         {projectsList &&
           projectsList?.map((projects) => (
             <div className="mb-4">
-              <p className="flex justify-center ml-4 mb-2">{projects.title}</p>
+              <p className="flex justify-center ml-4 mb-2 font-semibold">
+                {projects.title}
+              </p>
               <div className="flex justify-center">
-                <img
-                  className="w-72"
-                  src={projects.picture_url}
-                  alt="pictureProject"
-                />
+                <a href={projects.site_url} target="_blank" rel="noreferrer">
+                  <a
+                    href={projects.github_url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      className="w-72"
+                      src={projects.picture_url}
+                      alt="pictureProject"
+                    />
+                  </a>
+                </a>
               </div>
             </div>
           ))}

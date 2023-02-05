@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+import apiConnexion from "../services/apiConnexion";
 
 function Projects() {
   const [projectsList, setProjectsList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/home`)
-      .then((res) => res.json())
-      .then((json) => setProjectsList(json))
+    apiConnexion
+      .get(`projects`)
+      .then((res) => {
+        setProjectsList(res.data);
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -17,16 +22,20 @@ function Projects() {
         {projectsList &&
           projectsList?.map((projects) => (
             <div className="mb-4">
-              <p className="flex justify-center ml-4">{projects.title}</p>
+              <p className="flex justify-center ml-4 font-semibold">
+                {projects.title}
+              </p>
               <p className="flex justify-center ml-4 mb-2">
                 {projects.description}
               </p>
               <div className="flex justify-center">
-                <img
-                  className="w-72"
-                  src={projects.picture_url}
-                  alt="pictureProject"
-                />
+                <Link to={`/projects/${projects.id}`}>
+                  <img
+                    className="w-72"
+                    src={projects.picture_url}
+                    alt="pictureProject"
+                  />
+                </Link>
               </div>
             </div>
           ))}
