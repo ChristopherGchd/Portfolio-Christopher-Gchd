@@ -2,7 +2,7 @@ const models = require("../models");
 
 const browse = (req, res) => {
   models.project
-    .findAll()
+    .findAllBis()
     .then(([rows]) => {
       res.send(rows);
     })
@@ -35,8 +35,16 @@ const add = (req, res) => {
 
   models.project
     .insert(project)
-    .then(([result]) => {
-      res.location(`/projectadmin/${result.insertId}`).sendStatus(201);
+    .then(([result2]) => {
+      models.project_has_technology
+        .insert(req.body.tech, result2.insertId)
+        .then(([result]) => {
+          res.location(`/projectadmin/${result.insertId}`).sendStatus(201);
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(500);
+        });
     })
     .catch((err) => {
       console.error(err);

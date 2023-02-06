@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import apiConnexion from "../services/apiConnexion";
 
@@ -14,25 +14,10 @@ function ProjectAdmin() {
     site_url: "",
   });
 
-  const navigate = useNavigate();
-
   const handleNewProjet = (position, value) => {
     const newProject = { ...project };
     newProject[position] = value;
     setProject(newProject);
-  };
-
-  const handleAddProject = (e) => {
-    e.preventDefault();
-    apiConnexion
-      .post(`/projectadmin`, {
-        ...project,
-      })
-      .then((res) => {
-        setProjectList(res.data);
-        setTimeout(() => navigate("/projectadmin"), 3000);
-      })
-      .catch((err) => console.error(err));
   };
 
   const getProject = () => {
@@ -47,6 +32,19 @@ function ProjectAdmin() {
   useEffect(() => {
     getProject();
   }, []);
+
+  const handleAddProject = (e) => {
+    e.preventDefault();
+    apiConnexion
+      .post(`projectadmin`, {
+        ...project,
+        tech: 1,
+      })
+      .then(() => {
+        getProject();
+      })
+      .catch((err) => console.error(err));
+  };
 
   const deleteProject = (id) => {
     apiConnexion
@@ -126,6 +124,20 @@ function ProjectAdmin() {
               onChange={(e) => handleNewProjet(e.target.name, e.target.value)}
             />
           </div>
+          <div className="flex flex-col relative ml-6 w-52 lg:max-w-sm">
+            <p>Technology</p>
+            <select
+              className="p-2.5 text-[#3d6169] bg-white border rounded-md border-[#b6c4c7] shadow-sm outline-none mb-10"
+              name="technology"
+              onChange={(e) => handleNewProjet(e.target.name, e.target.value)}
+            >
+              <option value="JavaScript">JavaScript</option>
+              <option value="React">React</option>
+              <option value="CSS3">CSS3</option>
+              <option value="HTML5">HTML5</option>
+              <option value="MySQL">MySQL</option>
+            </select>
+          </div>
         </div>
         <div className="flex justify-center">
           <button
@@ -167,6 +179,9 @@ function ProjectAdmin() {
                 <p className="flex justify-center font-semibold">
                   {projects.site_url}
                 </p>
+                <div className="flex justify-center">
+                  <p>{projects.name}</p>
+                </div>
               </div>
             </div>
           ))}

@@ -5,9 +5,15 @@ class ProjectsManager extends AbstractManager {
     super({ table: "project" });
   }
 
-  findAll(id) {
-    const query = `SELECT project.id, project.title, project.description, project.picture_url, project.github_url, project.site_url, technology.name FROM ${this.table} as project JOIN project_has_technology pht ON project.id = pht.project_id JOIN technology as technology ON pht.technology_id = technology.id`;
-    return this.connection.query(query, [id]);
+  findAllBis() {
+    const query = `SELECT project.id, project.title, project.description, project.picture_url, project.github_url, project.site_url, technology.name 
+    FROM ${this.table} as project 
+    INNER JOIN project_has_technology as pht 
+    ON project.id = pht.project_id 
+    INNER JOIN technology as technology 
+    ON pht.technology_id = technology.id`;
+
+    return this.connection.query(query);
   }
 
   find(id) {
