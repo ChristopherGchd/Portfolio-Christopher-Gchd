@@ -37,6 +37,9 @@ function Projects() {
                   />
                 </Link>
               </div>
+              <div className="flex justify-center">
+                <p>{projects.name}</p>
+              </div>
             </div>
           ))}
       </div>

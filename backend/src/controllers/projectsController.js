@@ -2,7 +2,7 @@ const models = require("../models");
 
 const browse = (req, res) => {
   models.project
-    .findAll()
+    .findAllBis()
     .then(([rows]) => {
       res.send(rows);
     })
@@ -21,6 +21,30 @@ const read = (req, res) => {
       } else {
         res.send(rows[0]);
       }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const add = (req, res) => {
+  const project = req.body;
+
+  // TODO validations (length, format...)
+
+  models.project
+    .insert(project)
+    .then(([result2]) => {
+      models.project_has_technology
+        .insert(req.body.tech, result2.insertId)
+        .then(([result]) => {
+          res.location(`/projectadmin/${result.insertId}`).sendStatus(201);
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(500);
+        });
     })
     .catch((err) => {
       console.error(err);
@@ -47,5 +71,6 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
+  add,
   destroy,
 };
