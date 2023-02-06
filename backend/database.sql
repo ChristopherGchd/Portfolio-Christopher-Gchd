@@ -44,11 +44,21 @@ CREATE TABLE
     `project` (
         id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
         title VARCHAR(150) NOT NULL,
-        description VARCHAR(200) NOT NULL,
+        `description` VARCHAR(200) NOT NULL,
         picture_url VARCHAR(1000) NOT NULL,
         github_url VARCHAR(1000) NULL,
         site_url VARCHAR(1000) NULL
     );
+
+    INSERT INTO
+    `project` (id, title, description, picture_url, site_url)
+VALUES (1, "Inaka", "The most beautiful places in japan", "src/assets/inaka.jpg", "https://wildcodeschool.github.io/2022-09-JS-RMT-JSCREW-TEAM-B/");
+INSERT INTO
+    `project` (id, title, description, picture_url, github_url)
+VALUES (2, "Pokebiz", "Pokemon card sale", "src/assets/pokebiz.jpg", "https://github.com/ChristopherGchd/Pokebiz");
+INSERT INTO
+    `project` (id, title, description, picture_url, site_url)
+VALUES (3, "Makesense", "Makesense", "src/assets/logo-makesense-dark.png", "https://makesense.remote-fr-3.wilders.dev/");
 
 CREATE TABLE
     `project_has_technology` (
@@ -58,4 +68,4 @@ CREATE TABLE
 
 INSERT INTO
     `project_has_technology` (project_id, technology_id)
-VALUES (1, 1);
+VALUES (1, 1), (2, 2), (3, 5);
